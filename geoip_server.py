@@ -11,7 +11,7 @@
   queries using the pygeoip library.
 
 <Usage>
-  geoip_server.py /path/to/GeoIP.dat PORT
+  python geoip_server.py /path/to/GeoIP.dat PORT
 
   Where /path/to/GeoIP.dat is the path to a legal GeoIP database. Databases can
   be downloaded at http://www.maxmind.com/app/ip-location.
@@ -26,7 +26,7 @@ import pygeoip
 
 # Handle arguments
 if len(sys.argv) < 3:
-    print "usage: " + sys.argv[0] + " /path/to/GeoIP.dat PORT"
+    print "usage: python " + sys.argv[0] + " /path/to/GeoIP.dat PORT"
     sys.exit()
 
 geoipdb_filename = sys.argv[1]
@@ -36,7 +36,7 @@ port = int(sys.argv[2])
 ip = urllib.urlopen('http://whatismyip.com/automation/n09230945.asp').read()
 
 # Create XML-RPC server
-server = SimpleXMLRPCServer((ip, port), allow_none=True)
+server = SimpleXMLRPCServer(("localhost", port), allow_none=True)
 
 # Initialize and register geoip object
 geoip_obj = pygeoip.GeoIP(geoipdb_filename)
