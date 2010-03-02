@@ -8,7 +8,7 @@ Relies on [`pygeoip`](http://code.google.com/p/pygeoip/) and a [MaxMind GeoLite 
 
     $ python geoip_server.py /path/to/GeoIP.dat PORT
 
-Once the server is up and running, you can use make requests using any XML-RPC client interface. For example, using Python's `xmlrpclib`:
+Once the server is up and running, you can make requests to it using any XML-RPC client interface. For example, using Python's `xmlrpclib`:
 
     >>> import xmlrpclib
     
